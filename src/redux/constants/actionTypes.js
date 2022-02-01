@@ -1,0 +1,2 @@
+export const CHARACTER_DATA = "CHARACTER_DATA";
+export const MOVIES_DATA = "MOVIES_DATA";
