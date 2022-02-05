@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from 'react'
 import Scene from './components/Scene/Scene'
 import { OrbitControls, Stars } from '@react-three/drei';
 //Components
-import ModelObj from '../src/components/ModelObj/ModelObj'
+import MilleniumFalcon from '../src/components/MilleniumFalcon/MilleniumFalcon'
 import Planets from './components/Planets/Planets';
 import SideBar from './components/SideBar/SideBar'
 import CharactersCatalog from './components/CharactersCatalog/CharactersCatalog';
@@ -31,8 +31,8 @@ function App() {
     getMovies()
     getCharacters()
   }, [])
-  console.log('characters', characters)
-  console.log('movies', movies)
+  // console.log('characters', characters)
+  // console.log('movies', movies)
 
 
   return (
@@ -43,7 +43,7 @@ function App() {
       <Scene >
         <color attach={'background'} args={['black']} />
         <Suspense fullback={'null'} >
-          <ModelObj />
+          <MilleniumFalcon />
         </Suspense>
         <Suspense fullback={'null'} >
           <Planets />

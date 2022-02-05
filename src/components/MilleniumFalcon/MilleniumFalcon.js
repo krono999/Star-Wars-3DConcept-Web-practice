@@ -11,7 +11,7 @@ import { DDSLoader } from "three-stdlib";
 
 THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
 
-const ModelObj = () => {
+const MilleniumFalcon = () => {
 
     const materials = useLoader(MTLLoader, HalconMilenario);
     const obj = useLoader(OBJLoader, HalconMilenario, (loader) => {
@@ -23,4 +23,4 @@ const ModelObj = () => {
     return <primitive object={obj} scale={0.03} position={[-100, 0, 0]} />;
 };
 
-export default ModelObj
+export default MilleniumFalcon
