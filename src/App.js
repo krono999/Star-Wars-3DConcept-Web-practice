@@ -4,7 +4,7 @@ import Scene from './components/Scene/Scene'
 import { OrbitControls, Stars } from '@react-three/drei';
 //Components
 import MilleniumFalcon from '../src/components/MilleniumFalcon/MilleniumFalcon'
-import Planets from './components/Planets/Planets';
+import Planet from './components/Planet/Planet';
 import SideBar from './components/SideBar/SideBar'
 import CharactersCatalog from './components/CharactersCatalog/CharactersCatalog';
 import MoviesCatalog from './components/MoviesCatalog/MoviesCatalog';
@@ -46,7 +46,7 @@ function App() {
           <MilleniumFalcon />
         </Suspense>
         <Suspense fullback={'null'} >
-          <Planets />
+          <Planet />
         </Suspense>
         <Stars count={900} />
         <directionalLight intensity={4} color={'purple'} />
