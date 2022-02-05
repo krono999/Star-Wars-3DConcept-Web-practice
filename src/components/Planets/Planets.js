@@ -7,7 +7,7 @@ import texturePlanet from '../../assets/images/planet_emissive.jpeg'
 const Planets = () => {
     const base = new THREE.TextureLoader().load(texturePlanet)
     const ref = useRef()
-    useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01))
+    useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.003))
     return (
         <mesh position={[90, 0, 90]} visible castShadow ref={ref}>
             <directionalLight intensity={0.5} />

@@ -6,7 +6,7 @@ import ModelObj from '../src/components/ModelObj/ModelObj'
 import Planets from './components/Planets/Planets';
 import SideBar from './components/SideBar/SideBar'
 import CharactersCatalog from './components/CharactersCatalog/CharactersCatalog';
-import StarShip from './components/StarShip/StarShip';
+// import StarShip from './components/StarShip/StarShip';
 
 
 function App() {
@@ -45,12 +45,9 @@ function App() {
           <ModelObj />
         </Suspense>
         <Suspense fullback={'null'} >
-          <StarShip />
-        </Suspense>
-        <Suspense fullback={'null'} >
           <Planets />
         </Suspense>
-        <Stars count={100} />
+        <Stars count={900} />
         <directionalLight intensity={4} color={'purple'} />
         <ambientLight color="#ffffff" intensity={0.2} position={[-1, 2, 4]} />
         <pointLight

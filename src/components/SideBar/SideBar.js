@@ -1,94 +1,21 @@
-// import React from 'react';
-// import clsx from 'clsx';
-// import { makeStyles } from '@material-ui/core/styles';
-// import { Drawer, Button, List, Divider, ListItem, ListItemText } from '@material-ui/core';
-
-
-
-// const useStyles = makeStyles({
-//     list: {
-//         width: 250,
-//     },
-//     fullList: {
-//         width: 'auto',
-//     },
-//     paper: {
-//         backgroundColor: '#7f1b9d'
-//     }
-// });
-
-// export default function SideBar() {
-//     const classes = useStyles();
-//     const [state, setState] = React.useState({
-
-//         left: false,
-
-//     });
-
-//     const toggleDrawer = (anchor, open) => (event) => {
-//         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-//             return;
-//         }
-
-//         setState({ ...state, [anchor]: open });
-//     };
-
-//     const list = (anchor) => (
-//         <div
-//             className={clsx(classes.list, {
-//                 [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-
-//             })}
-//             role="presentation"
-//             onClick={toggleDrawer(anchor, false)}
-//             onKeyDown={toggleDrawer(anchor, false)}
-//         >
-//             <List>
-//                 {['Personajes', 'Peliculas'].map((text, index) => (
-//                     <ListItem button key={text}>
-
-//                         <ListItemText primary={text} />
-//                     </ListItem>
-//                 ))}
-//             </List>
-//             <Divider />
-
-//         </div>
-//     );
-
-//     return (
-//         <div>
-//             {['Buscá Aqui'].map((anchor) => (
-//                 <React.Fragment key={anchor}>
-//                     <Button variant='outlined' color='inherit' onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-//                     <Drawer classes={{ paper: classes.paper }} anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-//                         {list(anchor)}
-//                     </Drawer>
-//                 </React.Fragment>
-//             ))}
-//         </div>
-//     );
-// }
-
+//React
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+//Material-ui Components
+import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+//material-ui Icons
+import StarWarsLogo from '../../assets/images/star-wars-4.svg'
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+// import { AccessibilityNewIcon, LocalMoviesIcon } from '@material-ui/icons';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
+//Components
+import CharactersCatalog from '../CharactersCatalog/CharactersCatalog';
+import MoviesCatalog from '../MoviesCatalog/MoviesCatalog';
+
 
 const drawerWidth = 240;
 
@@ -148,6 +75,14 @@ const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     },
+    dividerColor: {
+        backgroundColor: 'black',
+    },
+    logo: {
+        maxWidth: 140,
+        // maxHeight: 30,
+        marginLeft: '40%'
+    },
 }));
 
 export default function PersistentDrawerLeft() {
@@ -183,9 +118,8 @@ export default function PersistentDrawerLeft() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Star Wars Saga
-                    </Typography>
+
+                    <img src={StarWarsLogo} alt="logo" className={classes.logo} />
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -203,17 +137,17 @@ export default function PersistentDrawerLeft() {
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
-                <Divider />
+                <Divider className={classes.dividerColor} />
                 <List>
-                    {['Personajes', 'Peliculas',].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                    {[<CharactersCatalog />, <MoviesCatalog />].map((text, index) => (
+                        <ListItem key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <AccessibilityNewIcon /> : <LocalMoviesIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
 
-                <Divider />
+                <Divider className={classes.dividerColor} />
             </Drawer>
 
         </div>

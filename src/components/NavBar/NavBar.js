@@ -5,6 +5,7 @@ import SideBar from '../SideBar/SideBar'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        color: '#800080'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         marginLeft: '37%',
         flexGrow: 1,
+
     },
 }));
 
