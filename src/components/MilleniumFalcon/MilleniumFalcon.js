@@ -1,6 +1,6 @@
 
-import React, { useRef } from 'react'
-import { useFrame } from 'react-three-fiber'
+import React from 'react'
+// import { useFrame } from 'react-three-fiber'
 import * as THREE from "three";
 import HalconMilenario from '../../assets/models/Halcon_Milenario.obj'
 import { useLoader } from "@react-three/fiber";
