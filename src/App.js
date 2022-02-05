@@ -1,11 +1,14 @@
-import Scene from './components/Scene/Scene'
+//React
 import React, { Suspense, useEffect, useState } from 'react'
-// import NavBar from '../src/components/NavBar/NavBar'
+import Scene from './components/Scene/Scene'
 import { OrbitControls, Stars } from '@react-three/drei';
+//Components
 import ModelObj from '../src/components/ModelObj/ModelObj'
 import Planets from './components/Planets/Planets';
 import SideBar from './components/SideBar/SideBar'
 import CharactersCatalog from './components/CharactersCatalog/CharactersCatalog';
+import MoviesCatalog from './components/MoviesCatalog/MoviesCatalog';
+// import NavBar from '../src/components/NavBar/NavBar'
 // import StarShip from './components/StarShip/StarShip';
 
 
@@ -36,9 +39,7 @@ function App() {
     <div style={{ height: '100vh', overflow: 'hideen' }} >
       <SideBar />
       <CharactersCatalog data={characters} />
-
-
-
+      <MoviesCatalog data={movies} />
       <Scene >
         <color attach={'background'} args={['black']} />
         <Suspense fullback={'null'} >
