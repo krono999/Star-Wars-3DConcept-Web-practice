@@ -1,6 +1,6 @@
 import React from 'react';
 import {/*  Grid, Paper, Typography, */ Button } from '@material-ui/core'
-const MoviesCatalog = ({ movies }) => {
+const MoviesButton = () => {
 
     return <div styles={{ backgroundColor: 'black' }}>
         <Button variant="outlined" color="black">
@@ -10,4 +10,4 @@ const MoviesCatalog = ({ movies }) => {
     </div>;
 };
 
-export default MoviesCatalog;
+export default MoviesButton;

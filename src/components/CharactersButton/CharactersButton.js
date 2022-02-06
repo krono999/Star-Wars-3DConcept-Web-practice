@@ -1,6 +1,6 @@
 import React from 'react';
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
-const CharactersCatalog = ({ characters }) => {
+const CharactersButton = () => {
 
     return <div styles={{ backgroundColor: 'black' }}>
         <Button variant="outlined" color="black">
@@ -10,4 +10,4 @@ const CharactersCatalog = ({ characters }) => {
     </div>;
 };
 
-export default CharactersCatalog;
+export default CharactersButton;
