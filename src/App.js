@@ -42,20 +42,20 @@ function App() {
     <div style={{ height: '100vh', overflow: 'hideen' }} >
       <SideBar />
       {/* <CharactersButton data={characters} /> */}
-      {/* <MoviesButton data={movies} /> */}
+      <MoviesButton data={movies} />
       <CharacterList data={characters} />
       <Scene >
         <Suspense fullback={"loading"} >
           <color attach={'background'} args={['black']} />
           {/* {<MilleniumFalcon /> ? <Suspense fullback={"loading"} >
             <MilleniumFalcon />
-          </Suspense> : <StarWarsLogo />}
+          </Suspense> : <StarWarsLogo />} */}
           {<Planet /> ? <Suspense fullback={"loading"} >
             <Planet />
           </Suspense> : <StarWarsLogo />}
           {<PlanetMars /> ? <Suspense fullback={"loading"} >
             <PlanetMars />
-          </Suspense> : <StarWarsLogo />} */}
+          </Suspense> : <StarWarsLogo />}
           <Stars Radius of stars={1000} factor={4} saturation={0} fade count={1000} />
           <directionalLight intensity={4} color={'purple'} />
           <ambientLight color="#ffffff" intensity={0.2} position={[-1, 2, 4]} />

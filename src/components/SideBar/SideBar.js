@@ -13,8 +13,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 //Components
-import CharactersCatalog from '../CharactersCatalog/CharactersCatalog';
-import MoviesCatalog from '../MoviesCatalog/MoviesCatalog';
+import CharactersButton from '../CharactersButton/CharactersButton';
+import MoviesButton from '../MoviesButton/MoviesButton';
 
 
 const drawerWidth = 240;
@@ -140,7 +140,7 @@ export default function PersistentDrawerLeft() {
                 </div>
                 <Divider className={classes.dividerColor} />
                 <List>
-                    {[<CharactersCatalog />, <MoviesCatalog />].map((text, index) => (
+                    {[<CharactersButton />, <MoviesButton />].map((text, index) => (
                         <ListItem key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <AccessibilityNewIcon /> : <LocalMoviesIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
