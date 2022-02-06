@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from '@material-ui/core'
+import {/*  Grid, Paper, Typography, */ Button } from '@material-ui/core'
 const MoviesCatalog = ({ movies }) => {
 
-    return <div>
+    return <div styles={{ backgroundColor: 'black' }}>
         <Button variant="outlined" color="black">
             Peliculas
         </Button>

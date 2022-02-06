@@ -21,6 +21,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        backgroundColor: 'black',
         display: 'flex',
     },
     appBar: {
@@ -81,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         maxWidth: 140,
         // maxHeight: 30,
-        marginLeft: '38%'
+        marginLeft: '39%'
     },
 }));
 

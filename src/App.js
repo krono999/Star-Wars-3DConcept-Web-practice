@@ -8,6 +8,7 @@ import Planet from './components/Planet/Planet';
 import SideBar from './components/SideBar/SideBar'
 import CharactersCatalog from './components/CharactersCatalog/CharactersCatalog';
 import MoviesCatalog from './components/MoviesCatalog/MoviesCatalog';
+import PlanetMars from '../src/components/PlanetMars/PlanetMars.js'
 // import NavBar from '../src/components/NavBar/NavBar'
 // import StarShip from './components/StarShip/StarShip';
 
@@ -42,13 +43,16 @@ function App() {
       <MoviesCatalog data={movies} />
       <Scene >
         <color attach={'background'} args={['black']} />
-        <Suspense fullback={'null'} >
-          <MilleniumFalcon />
-        </Suspense>
-        <Suspense fullback={'null'} >
+        <Suspense fullback={"loading"} >
           <Planet />
         </Suspense>
-        <Stars count={900} />
+        <Suspense fullback={"loading"} >
+          <PlanetMars />
+        </Suspense>
+        <Suspense fullback={"loading"} >
+          <MilleniumFalcon />
+        </Suspense>
+        <Stars Radius of stars={1000} factor={4} saturation={0} fade count={1000} />
         <directionalLight intensity={4} color={'purple'} />
         <ambientLight color="#ffffff" intensity={0.2} position={[-1, 2, 4]} />
         <pointLight
