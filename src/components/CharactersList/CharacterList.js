@@ -1,45 +1,51 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
     root: {
-        width: 250,
-        marginTop: 100,
-        marginLeft: 100
+        // width: '100%',
+        // marginTop: '10%',
+        maxWidth: 200,
+        backgroundColor: '#FFA500',
+        // alignContent: 'center',
+        // justifyContent: 'center'
+        marginLeft: '29%'
+
     },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
+}));
+
+
 
 const CharacterList = ({ characters }) => {
     const classes = useStyles();
+    const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-    return <div>
-        <Card className={classes.root}>
-            <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
+    const handleListItemClick = (event, index) => {
+        setSelectedIndex(index);
+    };
 
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small"> </Button>
-            </CardActions>
-        </Card>
-    </div>;
+    return characters.map((c) => <div className={classes.root}>
+        <List component="list" aria-label="characters">
+            <ListItem
+                button
+                selected={selectedIndex === 0}
+                onClick={(event) => handleListItemClick(event, 0)}
+            >
+                <ListItemText>
+                    {c.name}
+                </ListItemText>
+            </ListItem>
+        </List>
+        <Divider />
+    </div>);
 };
 
 export default CharacterList;
+
+
+
