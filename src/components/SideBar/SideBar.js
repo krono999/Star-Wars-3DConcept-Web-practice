@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 //Material-ui Components
-import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Drawer, CssBaseline, AppBar, Toolbar, List, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 //material-ui Icons
 import StarWarsLogo from '../../assets/images/star-wars-4.svg'
 import MenuIcon from '@material-ui/icons/Menu';
@@ -15,6 +15,8 @@ import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 //Components
 import CharactersButton from '../CharactersButton/CharactersButton';
 import MoviesButton from '../MoviesButton/MoviesButton';
+
+
 
 
 const drawerWidth = 240;
@@ -84,6 +86,11 @@ const useStyles = makeStyles((theme) => ({
         // maxHeight: 30,
         marginLeft: '39%'
     },
+    containerDrawer: {
+        marginLeft: drawerWidth
+    }
+
+
 }));
 
 export default function SideBar() {
@@ -124,8 +131,7 @@ export default function SideBar() {
                 </Toolbar>
             </AppBar>
             <Drawer
-
-                className={classes.drawer}
+                className={classes.c}
                 variant="persistent"
                 anchor="left"
                 open={open}
@@ -150,7 +156,6 @@ export default function SideBar() {
 
                 <Divider className={classes.dividerColor} />
             </Drawer>
-
         </div>
     );
 }
