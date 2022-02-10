@@ -1,6 +1,5 @@
 import React from 'react';
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
-import CharacterList from '../../components/CharactersList/CharacterList'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, List, IconButton, ListItem, ListItemText } from '@material-ui/core';
 //material-ui Icons
@@ -45,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         width: drawerWidth,
         background: "#8e24aa",
+        // backgroundColor: 'transparent',
         marginLeft: '240px',
         marginTop: '70px'
 
@@ -92,11 +92,11 @@ const CharactersButton = ({ characters }) => {
     const [openList, setOpenList] = React.useState(false);
     const theme = useTheme();
 
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+    // const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-    const handleListItemClick = (event, index) => {
-        setSelectedIndex(index);
-    };
+    // const handleListItemClick = (event, index) => {
+    //     setSelectedIndex(index);
+    // };
     const handleDrawerOpenList = () => {
         setOpenList(true);
         // <CharacterList />
@@ -128,11 +128,21 @@ const CharactersButton = ({ characters }) => {
                 </IconButton>
             </div>
 
-            <ListItem >
+            {/* {char.map(c => (
+                <div key={c.id}>
+                    <ListItemText>
+                        {c.name}
+                    </ListItemText>
+                </div>
+            ))} */}
+            <List>
+                {[<CharactersButton />].map((text, index) => (
+                    <ListItem key={text}>
 
-                <ListItemText />
-            </ListItem>
-
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))}
+            </List>
 
         </Drawer>
     </div>;

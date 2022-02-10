@@ -4,14 +4,14 @@ import Scene from './components/Scene/Scene'
 import { OrbitControls, Stars } from '@react-three/drei';
 //Components
 import SideBar from './components/SideBar/SideBar'
-// import Planet from './components/Planet/Planet';
-// import PlanetMars from '../src/components/PlanetMars/PlanetMars.js'
-// import CharacterList from './components/CharactersList/CharacterList';
+import Planet from './components/Planet/Planet';
+import PlanetMars from '../src/components/PlanetMars/PlanetMars.js'
 // import MilleniumFalcon from '../src/components/MilleniumFalcon/MilleniumFalcon'
 // import CharactersButton from './components/CharactersButton/CharactersButton';
 // import MoviesButton from './components/MoviesButton/MoviesButton';
 // import NavBar from '../src/components/NavBar/NavBar'
-
+import LoadingComponent from '../../Zenvia/src/components/Loading/Loading'
+// import AudioPlayers from '../../Zenvia/src/components/AudioPlayer/AudioPlayer'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -38,13 +38,14 @@ function App() {
 
   if (characters.length && movies.length) {
     return <div style={{ height: '100vh', overflow: 'hideen' }} >
+
       <SideBar />
-      {/* <CharacterList characters={characters} /> */}
+      {/* <AudioPlayers /> */}
 
     </div>
 
   } else {
-    return 'loading data'
+    return <LoadingComponent />
   }
 }
 
