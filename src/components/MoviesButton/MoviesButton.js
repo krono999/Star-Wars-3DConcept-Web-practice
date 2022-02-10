@@ -3,9 +3,10 @@ import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, List, IconButton, Divider, ListItem, ListItemText } from '@material-ui/core';
 //material-ui Icons
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // import { AccessibilityNewIcon, LocalMoviesIcon } from '@material-ui/icons';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+
 
 //Components
 import SearchBarMovies from '../SearchBarMovies/SearchBarMovies';
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
         width: drawerWidth,
-        background: "purple",
+        background: "#ffa000",
         marginLeft: '210px',
         marginTop: '69px'
 
@@ -109,7 +110,7 @@ const MoviesButton = ({ movies }) => {
 
 
     return <div /* styles={{ backgroundColor: 'black' }} */>
-        <Button onClick={handleDrawerOpenList} variant="outlined" color="black">
+        <Button style={{ background: 'black', color: 'yellow' }} onClick={handleDrawerOpenList} variant="contained" color="inherit">
             Peliculas
         </Button>
         <Drawer
@@ -125,7 +126,7 @@ const MoviesButton = ({ movies }) => {
             <div className={classes.drawerHeader}>
                 <h5>Peliculas</h5>
                 <IconButton onClick={handleDrawerCloseList}>
-                    {theme.direction === 'ltr' ? <ArrowBackIosIcon /> : <KeyboardArrowRightIcon />}
+                    {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
                 </IconButton>
             </div>
             <Divider />
@@ -140,8 +141,17 @@ const MoviesButton = ({ movies }) => {
             <Divider />
             {movies.map(c => (
                 <div key={c.id}>
-                    <div >
-                        <Button variant="outlined" color="black" >
+                    <div style={{
+                        padding: '4px',
+                        borderRadius: 5,
+
+                    }} >
+                        <Button style={{
+                            borderRadius: 5,
+                            // backgroundColor: "orange",
+                            // fontSize: "18px"
+
+                        }} variant="outlined" color="inherit">
                             {c.title}
                         </Button>
                     </div>

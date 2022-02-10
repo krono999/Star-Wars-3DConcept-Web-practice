@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
         width: drawerWidth,
-        background: "purple",
+        background: "#ffa000",
         // backgroundColor: 'transparent',
         marginLeft: '210px',
         marginTop: '70px'
@@ -116,7 +116,7 @@ const CharactersButton = ({ characters }) => {
 
 
     return <div styles={{ backgroundColor: 'black' }}>
-        <Button onClick={handleDrawerOpenList} variant="outlined" color="black">
+        <Button style={{ background: 'black', color: 'yellow' }} onClick={handleDrawerOpenList} variant="contained" color="inherit">
             Personajes
         </Button>
         <Drawer
@@ -137,7 +137,7 @@ const CharactersButton = ({ characters }) => {
             </div>
 
             <Divider />
-            <List style={{ maxHeight: '100%', overflow: 'auto' }}>
+            <List >
                 {[<SearchBarCharacters />].map((text, index) => (
                     <ListItem key={text}>
 
@@ -150,9 +150,13 @@ const CharactersButton = ({ characters }) => {
             <Divider />
             <br />
             {characters.map(c => (
-                <div key={c.id}>
+                <div style={{
+                    padding: '6px',
+                    borderRadius: 5,
+
+                }} key={c.id}>
                     <div >
-                        <Button variant="outlined" color="black">
+                        <Button style={{ background: 'black', color: 'yellow' }} variant="contained" color="inherit">
                             {c.name}
                         </Button>
                     </div>

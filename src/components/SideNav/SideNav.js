@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
         width: drawerWidth,
-        background: "purple"
+        background: "#ffa000"
     },
     drawerHeader: {
         display: 'flex',
@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         maxWidth: 140,
         // maxHeight: 30,
-        marginLeft: '38%'
+        marginLeft: '39%'
     },
     containerDrawer: {
         marginLeft: drawerWidth
