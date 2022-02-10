@@ -4,15 +4,17 @@ import React from 'react';
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, List, IconButton, ListItem, ListItemText, Divider } from '@material-ui/core';
+import Pagination from '@material-ui/lab/Pagination'
 //material-ui Icons
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 //Components
 import SearchBarCharacters from '../SearchBarCharacters/SearchBarCharacters'
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 390;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
         background: "purple",
         // backgroundColor: 'transparent',
-        marginLeft: '240px',
+        marginLeft: '210px',
         marginTop: '70px'
 
     },
@@ -58,6 +60,8 @@ const useStyles = makeStyles((theme) => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
+        minHeight: '35px'
+
 
     },
     content: {
@@ -126,20 +130,14 @@ const CharactersButton = ({ characters }) => {
             }}
         >
             <div className={classes.drawerHeader}>
+                <h5>Personajes</h5>
                 <IconButton onClick={handleDrawerCloseList}>
-                    {theme.direction === 'ltr' ? <ArrowBackIosIcon /> : <KeyboardArrowRightIcon />}
+                    {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
                 </IconButton>
             </div>
 
-            {/* {char.map(c => (
-                <div key={c.id}>
-                    <ListItemText>
-                        {c.name}
-                    </ListItemText>
-                </div>
-            ))} */}
             <Divider />
-            <List>
+            <List style={{ maxHeight: '100%', overflow: 'auto' }}>
                 {[<SearchBarCharacters />].map((text, index) => (
                     <ListItem key={text}>
 
@@ -148,6 +146,18 @@ const CharactersButton = ({ characters }) => {
                 ))}
             </List>
             <Divider />
+            <Pagination count={8} variant="outlined" shape="rounded" />
+            <Divider />
+            <br />
+            {characters.map(c => (
+                <div key={c.id}>
+                    <div >
+                        <Button variant="outlined" color="black">
+                            {c.name}
+                        </Button>
+                    </div>
+                </div>
+            ))}
 
         </Drawer>
     </div>;

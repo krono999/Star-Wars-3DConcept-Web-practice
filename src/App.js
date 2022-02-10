@@ -37,7 +37,7 @@ function App() {
   if (characters.length && movies.length) {
     return <div style={{ height: '100vh', overflow: 'hideen' }} >
       {/* <AudioPlayers /> */}
-      <SideNav />
+      <SideNav characters={characters} movies={movies} />
       <Scene >
         <Suspense fullback={'loading'} >
           <color attach={'background'} args={['black']} />

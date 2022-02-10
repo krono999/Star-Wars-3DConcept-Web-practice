@@ -36,7 +36,7 @@ import AudioPlayers from '../../components/AudioPlayer/AudioPlayer'
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -110,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function PersistentDrawerLeft() {
+export default function SideNav({ characters, movies }) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -158,12 +158,12 @@ export default function PersistentDrawerLeft() {
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
                 <Divider />
                 <List>
-                    {[<CharactersButton />, <MoviesButton />].map((text, index) => (
+                    {[<CharactersButton characters={characters} />, <MoviesButton movies={movies} />].map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <AccessibilityNewIcon /> : <LocalMoviesIcon />}</ListItemIcon>
                             <ListItemText primary={text} />

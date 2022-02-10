@@ -11,7 +11,7 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import SearchBarMovies from '../SearchBarMovies/SearchBarMovies';
 
 
-const drawerWidth = 240;
+const drawerWidth = 390;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         width: drawerWidth,
         background: "purple",
-        marginLeft: '240px',
+        marginLeft: '210px',
         marginTop: '69px'
 
     },
@@ -123,6 +123,7 @@ const MoviesButton = ({ movies }) => {
             }}
         >
             <div className={classes.drawerHeader}>
+                <h5>Peliculas</h5>
                 <IconButton onClick={handleDrawerCloseList}>
                     {theme.direction === 'ltr' ? <ArrowBackIosIcon /> : <KeyboardArrowRightIcon />}
                 </IconButton>
@@ -137,6 +138,15 @@ const MoviesButton = ({ movies }) => {
                 ))}
             </List>
             <Divider />
+            {movies.map(c => (
+                <div key={c.id}>
+                    <div >
+                        <Button variant="outlined" color="black" >
+                            {c.title}
+                        </Button>
+                    </div>
+                </div>
+            ))}
         </Drawer>
     </div>;
 };
