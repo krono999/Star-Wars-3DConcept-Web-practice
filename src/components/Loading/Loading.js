@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '25%',
-        color: 'yellow'
+        // color: 'yellow'
     },
 }));
 
@@ -20,7 +20,7 @@ export default function Loading() {
 
     return (
         <div className={classes.root}>
-            <CircularProgress color="yellow" />
+            <CircularProgress color="primary" />
         </div>
     );
 }

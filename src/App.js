@@ -3,15 +3,13 @@ import React, { Suspense, useEffect, useState } from 'react'
 import Scene from './components/Scene/Scene'
 import { OrbitControls, Stars } from '@react-three/drei';
 //Components
-import SideBar from './components/SideBar/SideBar'
 import Planet from './components/Planet/Planet';
 import PlanetMars from '../src/components/PlanetMars/PlanetMars.js'
-// import MilleniumFalcon from '../src/components/MilleniumFalcon/MilleniumFalcon'
-// import CharactersButton from './components/CharactersButton/CharactersButton';
-// import MoviesButton from './components/MoviesButton/MoviesButton';
+import MilleniumFalcon from '../src/components/MilleniumFalcon/MilleniumFalcon'
 // import NavBar from '../src/components/NavBar/NavBar'
 import LoadingComponent from '../../Zenvia/src/components/Loading/Loading'
-// import AudioPlayers from '../../Zenvia/src/components/AudioPlayer/AudioPlayer'
+import AudioPlayers from '../../Zenvia/src/components/AudioPlayer/AudioPlayer'
+import SideNav from '../src/components/SideNav/SideNav'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -33,15 +31,32 @@ function App() {
     getCharacters()
     getMovies()
   }, [])
-  // console.log('characters', characters)
-  // console.log('movies', movies)
+  console.log('characters', characters)
+  console.log('movies', movies)
 
   if (characters.length && movies.length) {
     return <div style={{ height: '100vh', overflow: 'hideen' }} >
-
-      <SideBar />
       {/* <AudioPlayers /> */}
-
+      <SideNav />
+      <Scene >
+        <Suspense fullback={'loading'} >
+          <color attach={'background'} args={['black']} />
+          <Suspense fullback={'loading'} >
+            {/* <MilleniumFalcon /> */}
+            <Planet />
+            <PlanetMars />
+          </Suspense>
+          <Stars stars={1000} factor={4} saturation={0} radius={300} /* fade  */ count={1000} />
+          <directionalLight intensity={4} color={'purple'} />
+          <ambientLight color="#ffffff" intensity={0.2} position={[-1, 2, 4]} />
+          <pointLight
+            intensity={1}
+            castShadow
+            color={'red'}
+          />
+          <OrbitControls autoRotate />
+        </Suspense>
+      </ Scene >
     </div>
 
   } else {

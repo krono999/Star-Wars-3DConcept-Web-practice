@@ -1,14 +1,14 @@
 import React from 'react';
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
-import CharacterList from '../../components/CharactersList/CharacterList'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, /* List,  */IconButton, /* ListItem, ListItemText  */ } from '@material-ui/core';
+import { Drawer, List, IconButton, Divider, ListItem, ListItemText } from '@material-ui/core';
 //material-ui Icons
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 // import { AccessibilityNewIcon, LocalMoviesIcon } from '@material-ui/icons';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
 //Components
+import SearchBarMovies from '../SearchBarMovies/SearchBarMovies';
 
 
 const drawerWidth = 240;
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
         width: drawerWidth,
-        background: "#7b1fa2",
+        background: "purple",
         marginLeft: '240px',
         marginTop: '69px'
 
@@ -108,7 +108,7 @@ const MoviesButton = ({ movies }) => {
     };
 
 
-    return <div styles={{ backgroundColor: 'black' }}>
+    return <div /* styles={{ backgroundColor: 'black' }} */>
         <Button onClick={handleDrawerOpenList} variant="outlined" color="black">
             Peliculas
         </Button>
@@ -124,10 +124,19 @@ const MoviesButton = ({ movies }) => {
         >
             <div className={classes.drawerHeader}>
                 <IconButton onClick={handleDrawerCloseList}>
-                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    {theme.direction === 'ltr' ? <ArrowBackIosIcon /> : <KeyboardArrowRightIcon />}
                 </IconButton>
             </div>
+            <Divider />
+            <List>
+                {[<SearchBarMovies />].map((text, index) => (
+                    <ListItem key={text}>
 
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))}
+            </List>
+            <Divider />
         </Drawer>
     </div>;
 };

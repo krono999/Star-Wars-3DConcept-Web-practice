@@ -21,7 +21,7 @@ const MilleniumFalcon = () => {
     });
 
 
-    return <primitive object={obj} scale={0.008} position={[-100, 50, 50]} />;
+    return <primitive object={obj} scale={0.005} position={[-100, 50, 50]} />;
 };
 
 export default MilleniumFalcon

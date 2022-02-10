@@ -10,9 +10,9 @@ const PlanetMars = () => {
     const planet = useRef();
     useFrame(() => (planet.current.rotation.z += 0.002));
     return (
-        <mesh ref={planet} position={[-60, 60, -300]} visible castShadow >
+        <mesh ref={planet} position={[200, 10, 300]} visible castShadow >
             <directionalLight intensity={0.5} />
-            <sphereBufferGeometry attach="geometry" args={[90, 90, 90]} />
+            <sphereBufferGeometry attach="geometry" args={[110, 110, 110]} />
 
             <meshBasicMaterial
                 map={base}

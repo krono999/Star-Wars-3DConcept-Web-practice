@@ -1,13 +1,15 @@
+// React
 import React from 'react';
+// Material Ui Components
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText } from '@material-ui/core';
+import { Drawer, List, IconButton, ListItem, ListItemText, Divider } from '@material-ui/core';
 //material-ui Icons
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-// import { AccessibilityNewIcon, LocalMoviesIcon } from '@material-ui/icons';
-
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 //Components
+import SearchBarCharacters from '../SearchBarCharacters/SearchBarCharacters'
+
 
 
 const drawerWidth = 240;
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
         width: drawerWidth,
-        background: "#8e24aa",
+        background: "purple",
         // backgroundColor: 'transparent',
         marginLeft: '240px',
         marginTop: '70px'
@@ -56,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
+
     },
     content: {
         // flexGrow: 1,
@@ -124,7 +127,7 @@ const CharactersButton = ({ characters }) => {
         >
             <div className={classes.drawerHeader}>
                 <IconButton onClick={handleDrawerCloseList}>
-                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    {theme.direction === 'ltr' ? <ArrowBackIosIcon /> : <KeyboardArrowRightIcon />}
                 </IconButton>
             </div>
 
@@ -135,14 +138,16 @@ const CharactersButton = ({ characters }) => {
                     </ListItemText>
                 </div>
             ))} */}
+            <Divider />
             <List>
-                {[<CharactersButton />].map((text, index) => (
+                {[<SearchBarCharacters />].map((text, index) => (
                     <ListItem key={text}>
 
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
+            <Divider />
 
         </Drawer>
     </div>;
