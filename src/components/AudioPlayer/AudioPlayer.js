@@ -15,8 +15,7 @@ const audioLists = [
 
 const useStyles = makeStyles((theme) => ({
     AudioPositionButton: {
-        // marginTop: '526px',
-        // marginLeft: '317px'
+        // paddingTop: '20px'
     },
 
 
@@ -25,15 +24,19 @@ const useStyles = makeStyles((theme) => ({
 export default function AudioPlayers() {
     const classes = useStyles();
     return (
-        <div >
-            <h1>Play</h1>
-            <ReactJkMusicPlayer
-                className={classes.AudioPositionButton}
-                theme="dark"
-                audioLists={audioLists}
-                autoPlay={false}
-            />
-        </div>
+        <div style={{
+            marginTop: '585px',
+            marginLeft: '12px'
+        }}  >
+            <div className={classes.AudioPositionButton}  >
+                <h1>Play</h1>
+                <ReactJkMusicPlayer
+                    theme="dark"
+                    audioLists={audioLists}
+                    autoPlay={false}
+                />
+            </div >
+        </div >
     );
 }
 

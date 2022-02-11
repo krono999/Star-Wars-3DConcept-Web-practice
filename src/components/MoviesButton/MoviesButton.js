@@ -10,6 +10,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 //Components
 import SearchBarMovies from '../SearchBarMovies/SearchBarMovies';
+import MoviesDetailsList from '../MoviesDetailsList/MoviesDetailsList'
 
 
 const drawerWidth = 390;
@@ -110,7 +111,7 @@ const MoviesButton = ({ movies }) => {
 
 
     return <div /* styles={{ backgroundColor: 'black' }} */>
-        <Button style={{ background: 'black', color: 'yellow' }} onClick={handleDrawerOpenList} variant="contained" color="inherit">
+        <Button style={{ background: 'black', color: 'orange' }} onClick={handleDrawerOpenList} variant="contained" color="inherit">
             Peliculas
         </Button>
         <Drawer
@@ -146,13 +147,8 @@ const MoviesButton = ({ movies }) => {
                         borderRadius: 5,
 
                     }} >
-                        <Button style={{
-                            borderRadius: 5,
-                            // backgroundColor: "orange",
-                            // fontSize: "18px"
-
-                        }} variant="outlined" color="inherit">
-                            {c.title}
+                        <Button style={{ background: 'black', color: 'orange' }} variant="outlined" color="inherit">
+                            <MoviesDetailsList movies={movies} title={c.title} />
                         </Button>
                     </div>
                 </div>

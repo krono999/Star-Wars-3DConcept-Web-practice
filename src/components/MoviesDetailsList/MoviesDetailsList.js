@@ -1,20 +1,20 @@
 // React
 import React from 'react';
 // Material Ui Components
-import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
+import { /* Grid, Paper, Typography,  *//* Button  */ } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText, Divider } from '@material-ui/core';
+import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination'
 //material-ui Icons
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 //Components
-import SearchBarCharacters from '../SearchBarCharacters/SearchBarCharacters'
-import CharactersDetailsList from '../CharactersDetailsList/CharactersDetailsList';
+import CharactersButton from '../CharactersButton/CharactersButton';
+import MoviesButton from '../MoviesButton/MoviesButton';
 
 
-const drawerWidth = 390;
+
+const drawerWidth = 424;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
         background: "#ffa000",
         // backgroundColor: 'transparent',
-        marginLeft: '210px',
+        marginLeft: '600px',
         marginTop: '70px'
 
     },
@@ -94,10 +94,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
-const CharactersButton = ({ characters }) => {
+const MoviesDetailsList = ({ movies, title }) => {
     const classes = useStyles();
-    const [openList, setOpenList] = React.useState(false);
-    // const [openDetailsList, setOpenDetailsList] = React.useState(false);
+    const [openDetailsList, setOpenDetailsList] = React.useState(false);
     const theme = useTheme();
 
     // const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -105,72 +104,54 @@ const CharactersButton = ({ characters }) => {
     // const handleListItemClick = (event, index) => {
     //     setSelectedIndex(index);
     // };
-    const handleDrawerOpenList = () => {
-        setOpenList(true);
-
-        console.log('abreLista')
-    };
     const handleDrawerOpenDetailsList = () => {
-        setOpenList(true);
+        setOpenDetailsList(true);
 
         console.log('abreLista')
     };
 
-
-    const handleDrawerCloseList = () => {
-        setOpenList(false);
+    const handleDrawerCloseDetailsList = () => {
+        setOpenDetailsList(false);
     };
 
 
     return <div styles={{ backgroundColor: 'black' }}>
-        <Button style={{ background: 'black', color: 'orange' }} onClick={handleDrawerOpenList} variant="contained" color="inherit">
-            Personajes
+        <Button style={{ background: 'black', color: 'yellow' }} onClick={handleDrawerOpenDetailsList} variant="contained" color="inherit">
+            {title}
         </Button>
         <Drawer
 
             className={classes.c}
             variant="persistent"
             anchor="left"
-            open={openList}
+            open={openDetailsList}
             classes={{
                 paper: classes.drawerPaper,
             }}
         >
             <div className={classes.drawerHeader}>
-                <h5>Personajes</h5>
-                <IconButton onClick={handleDrawerCloseList}>
+
+                <IconButton onClick={handleDrawerCloseDetailsList}>
                     {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
                 </IconButton>
             </div>
 
             <Divider />
-            <List >
-                {[<SearchBarCharacters />].map((text, index) => (
-                    <ListItem key={text}>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+
+            {movies.map((movie, index) => (<List>
+
+                <ListItem button>
+                    <ListItemText key={index} primary={movie.title} />
+                    <ListItemText key={index} primary={movie.director} />
+                    <ListItemText key={index} primary={movie.producer} />
+                    <ListItemText key={index} primary={movie.release_date} />
+
+                </ListItem>
+
             </List>
-            <Pagination count={8} variant="outlined" shape="rounded" />
-            {characters.map(c => (
-                <div style={{
-                    padding: '2px',
-                    borderRadius: 5,
-                }} key={c.id}>
-                    <div >
-                        <Button characters={characters} style={{ background: 'black', color: 'orange' }}
-                            variant="contained"
-                            color="inherit">
-                            {/* {c.name} */}
-                            <CharactersDetailsList characters={characters} name={c.name} />
-                        </Button>
-                    </div>
-
-                </div>
             ))}
-
         </Drawer>
     </div>;
 };
 
-export default CharactersButton;
+export default MoviesDetailsList;
