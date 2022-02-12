@@ -8,7 +8,7 @@ import PlanetMars from '../src/components/PlanetMars/PlanetMars.js'
 import MilleniumFalcon from '../src/components/MilleniumFalcon/MilleniumFalcon'
 // import NavBar from '../src/components/NavBar/NavBar'
 import LoadingComponent from '../../Zenvia/src/components/Loading/Loading'
-import AudioPlayers from '../../Zenvia/src/components/AudioPlayer/AudioPlayer'
+// import AudioPlayers from '../../Zenvia/src/components/AudioPlayer/AudioPlayer'
 import SideNav from '../src/components/SideNav/SideNav'
 
 function App() {
