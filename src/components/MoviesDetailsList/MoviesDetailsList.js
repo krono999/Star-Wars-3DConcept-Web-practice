@@ -3,7 +3,7 @@ import React from 'react';
 // Material Ui Components
 import { /* Grid, Paper, Typography,  *//* Button  */ } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
+import { Grid, Typography, Drawer, List, IconButton, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination'
 //material-ui Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -90,8 +90,10 @@ const useStyles = makeStyles((theme) => ({
     },
     containerDrawer: {
         marginLeft: drawerWidth
-    }
-
+    },
+    detailsContainer: {
+        paddingLeft: '10px'
+    },
 
 }));
 const MoviesDetailsList = ({ movies, title }) => {
@@ -138,18 +140,29 @@ const MoviesDetailsList = ({ movies, title }) => {
 
             <Divider />
 
-            {movies.map((movie, index) => (<List>
+            {movies.map((movie, index) => (
+                movie.title === title &&
+                <List>
+                    <Grid className={classes.detailsContainer} container spacing={1}>
+                        <Grid item xs={12} md={12} >
+                            <Typography align='left' variant="h6" color="initial">Titulo: {movie.title}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12} >
+                            <Typography align='left' variant="body2" color="initial">Director: {movie.director}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12} >
 
-                <ListItem button>
-                    <ListItemText key={index} primary={movie.title} />
-                    <ListItemText key={index} primary={movie.director} />
-                    <ListItemText key={index} primary={movie.producer} />
-                    <ListItemText key={index} primary={movie.release_date} />
+                            <Typography align='left' variant="body2" color="initial">Productor: {movie.producer}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
 
-                </ListItem>
-
-            </List>
+                            <Typography align='left' variant="body2" color="initial">Fecha de Lanzamiento: {movie.release_date}</Typography>
+                        </Grid>
+                    </Grid>
+                </List>
             ))}
+
+
         </Drawer>
     </div>;
 };

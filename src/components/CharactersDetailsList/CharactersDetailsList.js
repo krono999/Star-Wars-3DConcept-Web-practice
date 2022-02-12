@@ -1,16 +1,16 @@
 // React
+import axios from 'axios'
 import React from 'react';
 // Material Ui Components
 import { /* Grid, Paper, Typography,  *//* Button  */ } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
+import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Button, Grid, Typography } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination'
 //material-ui Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 //Components
-import CharactersButton from '../CharactersButton/CharactersButton';
-import MoviesButton from '../MoviesButton/MoviesButton';
+
 
 
 
@@ -90,10 +90,24 @@ const useStyles = makeStyles((theme) => ({
     },
     containerDrawer: {
         marginLeft: drawerWidth
-    }
+    },
+    detailsContainer: {
+        paddingLeft: '10px'
+    },
 
 
 }));
+const specificFilm = async (url) => {
+
+    try {
+        let { data } = await axios.get(url)
+        let title = data.title
+        return title;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 const CharactersDetailsList = ({ characters, name }) => {
     const classes = useStyles();
     const [openDetailsList, setOpenDetailsList] = React.useState(false);
@@ -139,15 +153,42 @@ const CharactersDetailsList = ({ characters, name }) => {
                 </IconButton>
             </div>
             <Divider />
-            {characters.map((character, index) => (<List>
-
-                <ListItem button>
-                    <ListItemText key={index} primary={character.name} />
-                    <ListItemText key={index} primary={character.eye_color} />
-
-                </ListItem>
-
-            </List>
+            {characters.map((character, index) => (
+                character.name === name &&
+                <List>
+                    <Grid className={classes.detailsContainer} container spacing={1}>
+                        <Grid item xs={12} md={12} >
+                            <Typography align='left' variant="h6" color="initial" >Nombre: {character.name}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12} >
+                            <Typography align='left' variant="body2" color="initial ">color de Ojos: {character.eye_color}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
+                            <Typography align='left' variant="body2" color="initial">Altura: {character.height}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
+                            <Typography align='left' variant="body2" color="initial" >Peso: {character.mass}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
+                            <Typography align='left' variant="body2" color="initial" >Fecha de Nacimiento: {character.birth_year}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
+                            <Typography align='left' variant="body2" color="initial" >Genero: {character.gender}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
+                            <Typography align='left' variant="body2" color="initial" >Color de Piel: {character.skin_color}</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={12}  >
+                            <Typography align='left' variant="body2" color="initial" >Aparaciones en la Saga: </Typography>
+                        </Grid>
+                        {character.films.map((film, index) => (
+                            <Grid className={classes.detailsContainer} container spacing={1}>
+                                <Grid item xs={12} md={12}  >
+                                    <Typography align='left' variant="body2" color="initial" >{film}</Typography>
+                                </Grid>
+                            </Grid>))}
+                    </Grid>
+                </List>
             ))}
 
 

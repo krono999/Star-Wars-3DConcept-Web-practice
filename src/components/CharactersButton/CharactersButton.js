@@ -3,7 +3,7 @@ import React from 'react';
 // Material Ui Components
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText, Divider } from '@material-ui/core';
+import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Grid } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination'
 //material-ui Icons
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
@@ -50,7 +50,10 @@ const useStyles = makeStyles((theme) => ({
         background: "#ffa000",
         // backgroundColor: 'transparent',
         marginLeft: '210px',
-        marginTop: '70px'
+        marginTop: '70px',
+        // padding: '2%',
+        marginBottom: '15px'
+
 
     },
     drawerHeader: {
@@ -60,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
-        minHeight: '35px'
+        minHeight: '32px'
 
 
     },
@@ -136,38 +139,45 @@ const CharactersButton = ({ characters }) => {
                 paper: classes.drawerPaper,
             }}
         >
-            <div className={classes.drawerHeader}>
-                <h5>Personajes</h5>
-                <IconButton onClick={handleDrawerCloseList}>
-                    {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
-                </IconButton>
-            </div>
-
-            <Divider />
-            <List >
-                {[<SearchBarCharacters />].map((text, index) => (
-                    <ListItem key={text}>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Pagination count={8} variant="outlined" shape="rounded" />
-            {characters.map(c => (
-                <div style={{
-                    padding: '2px',
-                    borderRadius: 5,
-                }} key={c.id}>
-                    <div >
-                        <Button characters={characters} style={{ background: 'black', color: 'orange' }}
-                            variant="contained"
-                            color="inherit">
-                            {/* {c.name} */}
-                            <CharactersDetailsList characters={characters} name={c.name} />
-                        </Button>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <div className={classes.drawerHeader}>
+                        <h5>Personajes</h5>
+                        <IconButton onClick={handleDrawerCloseList}>
+                            {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
+                        </IconButton>
                     </div>
+                    <Divider />
+                    <List >
+                        {[<SearchBarCharacters />].map((text, index) => (
+                            <ListItem key={text}>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        ))}
+                    </List>
+                    <Pagination count={8} variant="outlined" shape="rounded" />
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item>
+                    {characters.map(c => (
+                        <div style={{
+                            padding: '2px',
+                            borderRadius: 5,
+                        }} key={c.id}>
+                            <div >
+                                <Button characters={characters} style={{ background: 'black', color: 'orange' }}
+                                    variant="contained"
+                                    color="inherit">
+                                    <CharactersDetailsList characters={characters} name={c.name} />
+                                </Button>
+                            </div>
 
-                </div>
-            ))}
+                        </div>
+                    ))}
+                </Grid>
+            </Grid>
+
 
         </Drawer>
     </div>;

@@ -41,8 +41,8 @@ function App() {
       <Scene >
         <Suspense fullback={'loading'} >
           <color attach={'background'} args={['black']} />
-          <Suspense fullback={'loading'} >
-            {/* <MilleniumFalcon /> */}
+          <Suspense fullback={null} >
+            <MilleniumFalcon />
             <Planet />
             <PlanetMars />
           </Suspense>

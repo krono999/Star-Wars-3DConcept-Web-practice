@@ -9,7 +9,7 @@ const Planet = () => {
     const ref = useRef()
     useFrame(() => (ref.current.rotation.x += 0.002));
     return (
-        <mesh position={[200, 5, -200]} visible castShadow ref={ref}>
+        <mesh position={[200, 5, -800]} visible castShadow ref={ref}>
             <directionalLight intensity={0.5} />
             <sphereBufferGeometry attach="geometry" args={[50, 50, 50]} />
 

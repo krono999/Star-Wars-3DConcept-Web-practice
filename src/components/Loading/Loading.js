@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         },
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '25%',
+        marginTop: '20%',
         // color: 'yellow'
     },
 }));
