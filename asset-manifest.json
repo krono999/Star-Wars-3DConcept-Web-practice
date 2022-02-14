@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/static/js/main.7beb2944.js",
+    "static/media/texture.jpg": "/static/media/texture.9717175abecef2a4ec34.jpg",
+    "static/media/texture.png": "/static/media/texture.1b754ad2104126b0dd19.png",
+    "static/media/textureMars.jpg": "/static/media/textureMars.4f7fc2c768c9dfe08c74.jpg",
+    "static/media/star-wars-4.svg": "/static/media/star-wars-4.3bf2a05eba37f49b9b0ddfa3920fb34f.svg",
+    "index.html": "/index.html",
+    "main.7beb2944.js.map": "/static/js/main.7beb2944.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7beb2944.js"
+  ]
+}
