@@ -6,25 +6,9 @@ export default function SearchBarCharacters({ characters }) {
             placeholder="Buscar"
             // data={[
             //     {
-            //         key: "john",
-            //         value: "John Doe"
+            //         key: "johnexample",
+            //         value: "John DoeExample"
             //     },
-            //     {
-            //         key: "jane",
-            //         value: "Jane Doe"
-            //     },
-            //     {
-            //         key: "mary",
-            //         value: "Mary Phillips"
-            //     },
-            //     {
-            //         key: "robert",
-            //         value: "Robert"
-            //     },
-            //     {
-            //         key: "karius",
-            //         value: "Karius"
-            //     }
             // ]}
             data={[
                 {

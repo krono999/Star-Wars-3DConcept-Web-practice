@@ -1,13 +1,10 @@
 import React from 'react';
-import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, List, IconButton, Divider, ListItem, ListItemText } from '@material-ui/core';
 //material-ui Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-// import { AccessibilityNewIcon, LocalMoviesIcon } from '@material-ui/icons';
-
-
 //Components
 import SearchBarMovies from '../SearchBarMovies/SearchBarMovies';
 import MoviesDetailsList from '../MoviesDetailsList/MoviesDetailsList'
@@ -140,15 +137,15 @@ const MoviesButton = ({ movies }) => {
                 ))}
             </List>
             <Divider />
-            {movies.map(c => (
-                <div key={c.id}>
+            {movies.map(mov => (
+                <div key={mov.id}>
                     <div style={{
                         padding: '4px',
                         borderRadius: 5,
 
                     }} >
                         <Button style={{ background: 'black', color: 'orange' }} variant="outlined" color="inherit">
-                            <MoviesDetailsList movies={movies} title={c.title} />
+                            <MoviesDetailsList movies={movies} title={mov.title} />
                         </Button>
                     </div>
                 </div>

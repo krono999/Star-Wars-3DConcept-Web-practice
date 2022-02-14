@@ -1,11 +1,10 @@
 // React
-import axios from 'axios'
 import React from 'react';
 // Material Ui Components
 import { /* Grid, Paper, Typography,  *//* Button  */ } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Button, Grid, Typography } from '@material-ui/core';
-import Pagination from '@material-ui/lab/Pagination'
+import { Drawer, List, IconButton, Divider, Button, Grid, Typography } from '@material-ui/core';
+
 //material-ui Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -97,23 +96,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
-const specificFilm = async (url) => {
-
-    try {
-        let { data } = await axios.get(url)
-        let title = data.title
-        return title;
-    } catch (error) {
-        console.log(error)
-    }
-}
-
 const CharactersDetailsList = ({ characters, name }) => {
     const classes = useStyles();
     const [openDetailsList, setOpenDetailsList] = React.useState(false);
-    // const [detailsList, setDetailsList] = React.useState({
-    //     eye_color: {}
-    // });
     const theme = useTheme();
 
     // const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -178,7 +163,7 @@ const CharactersDetailsList = ({ characters, name }) => {
                         <Grid item xs={12} md={12}  >
                             <Typography align='left' variant="body2" color="initial" >Color de Piel: {character.skin_color}</Typography>
                         </Grid>
-                        <Grid item xs={12} md={12}  >
+                        {/* <Grid item xs={12} md={12}  >
                             <Typography align='left' variant="body2" color="initial" >Aparaciones en la Saga: </Typography>
                         </Grid>
                         {character.films.map((film, index) => (
@@ -186,7 +171,7 @@ const CharactersDetailsList = ({ characters, name }) => {
                                 <Grid item xs={12} md={12}  >
                                     <Typography align='left' variant="body2" color="initial" >{film}</Typography>
                                 </Grid>
-                            </Grid>))}
+                            </Grid>))} */}
                     </Grid>
                 </List>
             ))}

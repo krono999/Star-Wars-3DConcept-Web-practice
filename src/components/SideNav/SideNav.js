@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 //Material-ui Components
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, Typography, CssBaseline, AppBar, Toolbar, List, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Drawer, CssBaseline, AppBar, Toolbar, List, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 //material-ui Icons
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';

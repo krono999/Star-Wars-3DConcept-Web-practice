@@ -3,10 +3,8 @@ import React from 'react';
 // Material Ui Components
 import { /* Grid, Paper, Typography,  */Button } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Grid } from '@material-ui/core';
-import Pagination from '@material-ui/lab/Pagination'
+import { Drawer, List, IconButton, ListItem, ListItemText, Divider, Grid, AppBar } from '@material-ui/core';
 //material-ui Icons
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 //Components
@@ -20,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: 'black',
         display: 'flex',
+        overflow: 'hidden'
     },
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
@@ -44,15 +43,15 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+        height: '100%'
     },
     drawerPaper: {
         width: drawerWidth,
         background: "#ffa000",
-        // backgroundColor: 'transparent',
         marginLeft: '210px',
         marginTop: '70px',
-        // padding: '2%',
-        marginBottom: '15px'
+        overflow: 'hidden',
+        height: '100%',
 
 
     },
@@ -93,7 +92,16 @@ const useStyles = makeStyles((theme) => ({
     },
     containerDrawer: {
         marginLeft: drawerWidth
-    }
+    },
+    containerListCharacters: {
+        height: '100%',
+        overflow: "hidden",
+        overflowY: "scroll"
+
+    },
+    abRoot: {
+        backgroundColor: "#ffa000"
+    },
 
 
 }));
@@ -110,14 +118,12 @@ const CharactersButton = ({ characters }) => {
     // };
     const handleDrawerOpenList = () => {
         setOpenList(true);
-
-        console.log('abreLista')
     };
-    const handleDrawerOpenDetailsList = () => {
-        setOpenList(true);
+    // const handleDrawerOpenDetailsList = () => {
+    //     setOpenList(true);
 
-        console.log('abreLista')
-    };
+    //     console.log('abreLista')
+    // };
 
 
     const handleDrawerCloseList = () => {
@@ -137,39 +143,49 @@ const CharactersButton = ({ characters }) => {
             open={openList}
             classes={{
                 paper: classes.drawerPaper,
+                overflow: 'hidden'
             }}
         >
-            <Grid container spacing={1}>
-                <Grid item>
-                    <div className={classes.drawerHeader}>
-                        <h5>Personajes</h5>
-                        <IconButton onClick={handleDrawerCloseList}>
-                            {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
-                        </IconButton>
-                    </div>
-                    <Divider />
-                    <List >
-                        {[<SearchBarCharacters />].map((text, index) => (
-                            <ListItem key={text}>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Pagination count={8} variant="outlined" shape="rounded" />
+            <AppBar classes={{
+                root: classes.abRoot,
+
+            }} position="sticky">
+                <Grid styles={{ backgroundColor: 'black', }} container spacing={1}>
+                    <Grid styles={{ backgroundColor: 'black' }} item md={12} xs={12}>
+                        <div className={classes.drawerHeader}>
+                            <h5 style={{ color: 'black' }}>Personajes</h5>
+                            <IconButton onClick={handleDrawerCloseList}>
+                                {theme.direction === 'ltr' ? <ChevronLeftIcon fontSize='small' /> : <ChevronRightIcon />}
+                            </IconButton>
+                        </div>
+                    </Grid>
+                    <Grid item md={12} xs={12} >
+                        <Divider variant='fullWidth' />
+                        <List >
+                            {[<SearchBarCharacters />].map((text, index) => (
+                                <ListItem key={text}>
+                                    <ListItemText primary={text} />
+                                </ListItem>
+                            ))}
+                        </List>
+                        {/* <Pagination count={characters} variant="outlined" shape="rounded" /> */}
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid container spacing={1}>
+            </AppBar>
+
+            <Grid className={classes.containerListCharacters} container spacing={1}>
                 <Grid item>
-                    {characters.map(c => (
+                    {characters.map(charctr => (
                         <div style={{
                             padding: '2px',
                             borderRadius: 5,
-                        }} key={c.id}>
-                            <div >
-                                <Button characters={characters} style={{ background: 'black', color: 'orange' }}
+
+                        }} key={charctr.id}>
+                            <div  >
+                                <Button characters={characters} style={{ background: 'black', color: 'orange', height: '100%' }}
                                     variant="contained"
                                     color="inherit">
-                                    <CharactersDetailsList characters={characters} name={c.name} />
+                                    <CharactersDetailsList characters={characters} name={charctr.name} />
                                 </Button>
                             </div>
 
