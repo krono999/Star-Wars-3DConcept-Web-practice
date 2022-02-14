@@ -3,14 +3,12 @@ import React from 'react';
 // Material Ui Components
 import { /* Grid, Paper, Typography,  *//* Button  */ } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Grid, Typography, Drawer, List, IconButton, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
-import Pagination from '@material-ui/lab/Pagination'
+import { Grid, Typography, Drawer, List, IconButton, Divider, Button } from '@material-ui/core';
 //material-ui Icons
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 //Components
-import CharactersButton from '../CharactersButton/CharactersButton';
-import MoviesButton from '../MoviesButton/MoviesButton';
+
 
 
 
